@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(
+    135deg,
+    #ffe0e8,
+    #fff4ee,
+    #fbd5e5
+  );
+  color: #74354d;
+  text-align: center;
+}
+
+.container {
+  padding: 35px 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.heart {
+  font-size: 55px;
+  animation: beat 1s infinite alternate;
+}
+
+h1 {
+  font-size: 36px;
+  color: #c2185b;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+button {
+  background: #c2185b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 25px;
+  font-size: 17px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.card {
+  background: rgba(255,255,255,0.75);
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 5px 20px #e8a5bc;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="heart">❤️</div>
+
+  <h1>Happy Birthday!</h1>
+
+  <p>
+    To someone who holds a special place
+    in my heart 🌷
+  </p>
+
+  <button onclick="openGift()">
+    Open Your Surprise 💌
+  </button>
+
+  <div id="gift" class="hidden">
+
+    <div class="card">
+
+      <h2>My Birthday Letter 💗</h2>
+
+      <p>
+        Happy Birthday, my favourite person! 🥹❤️
+      </p>
+
+      <p>
+        Today is your special day, and I want you
+        to know how much I appreciate the person
+        you are.
+      </p>
+
+      <p>
+        You deserve happiness, peace, love,
+        and beautiful moments throughout your life.
+      </p>
+
+      <p>
+        I hope this new year brings you countless
+        reasons to smile and memories you'll
+        treasure forever.
+      </p>
+
+      <p>
+        Keep being yourself, keep smiling,
+        and never forget how special you are. 🌹
+      </p>
+
+      <h2>Happy Birthday, Beautiful! ❤️</h2>
+
+    </div>
+
+    <div class="card">
+
+      <h2>A Little Wish For You ✨</h2>
+
+      <p>
+        May your dreams come true, your heart
+        find peace, and your days be filled
+        with happiness.
+      </p>
+
+      <p>
+        You deserve a beautiful birthday and
+        an even more beautiful year ahead. 🦋
+      </p>
+
+    </div>
+
+  </div>
+
+  <p style="font-size:14px; margin-top:40px;">
+    Made with love ❤️
+  </p>
+
+</div>
+
+<script>
+function openGift() {
+  document.getElementById("gift").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
