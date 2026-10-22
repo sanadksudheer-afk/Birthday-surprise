@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Birthday Challenge 🎂</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ffe0ec, #ffc1d6, #fff0f5);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: #b01755;
+        padding: 25px 12px;
+    }
+
+    h1 {
+        font-size: 27px;
+        margin-top: 25px;
+    }
+
+    .instructions {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #7b2448;
+    }
+
+    .cake-area {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 45px auto 15px;
+    }
+
+    .cake {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        width: 250px;
+        height: 130px;
+        background: #a85d42;
+        border-radius: 12px 12px 25px 25px;
+        border-bottom: 12px solid #87422f;
+        box-shadow: 0 12px 20px #d98ca7;
+    }
+
+    .icing {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 35px;
+        background: #fff5fa;
+        border-radius: 12px 12px 18px 18px;
+    }
+
+    .icing::before,
+    .icing::after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        width: 22px;
+        height: 25px;
+        background: #fff5fa;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .icing::before {
+        left: 55px;
+    }
+
+    .icing::after {
+        right: 55px;
+    }
+
+    .candle {
+        position: absolute;
+        bottom: 155px;
+        width: 38px;
+        height: 85px;
+        border: none;
+        border-radius: 6px 6px 3px 3px;
+        background: repeating-linear-gradient(
+            45deg,
+            #fff 0px,
+            #fff 8px,
+            #ff75a8 8px,
+            #ff75a8 15px
+        );
+        cursor: pointer;
+        padding: 0;
+        box-shadow: 0 3px 5px #c87b96;
+    }
+
+    .candle span {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        width: 100%;
+        font-weight: bold;
+        font-size: 20px;
+        color: #8e1747;
+        text-shadow: 0 1px white;
+    }
+
+    .c1 { left: 65px; }
+    .c2 { left: 131px; }
+    .c3 { left: 197px; }
+
+    .flame {
+        position: absolute;
+        bottom: 88px;
+        left: 10px;
+        width: 18px;
+        height: 28px;
+        background: radial-gradient(
+            ellipse at bottom,
+            #fff7a8 0%,
+            #ffb323 45%,
+            #ff5a36 80%
+        );
+        border-radius: 50% 50% 45% 45%;
+        transform: rotate(5deg);
+        animation: flicker 0.6s infinite alternate;
+        pointer-events: none;
+        filter: drop-shadow(0 0 8px #ffad33);
+    }
+
+    .flame.off {
+        display: none;
+    }
+
+    @keyframes flicker {
+        from {
+            transform: rotate(-5deg) scale(1);
+        }
+        to {
+            transform: rotate(5deg) scale(1.1);
+        }
+    }
+
+    #message {
+        min-height: 55px;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px auto;
+        max-width: 350px;
+        line-height: 1.5;
+    }
+
+    .hint {
+        font-size: 14px;
+        color: #87425f;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🎂 A Little Birthday Challenge ❤️</h1>
+
+<p class="instructions">
+    Press candles <b>1, 2, 3</b> in order! 🕯️<br>
+    Make a wish with every candle. 💗
+</p>
+
+<div class="cake-area">
+
+    <button class="candle c1" onclick="blowOut(1)" aria-label="Candle 1">
+        <div class="flame" id="flame1"></div>
+        <span>1</span>
+    </button>
+
+    <button class="candle c2" onclick="blowOut(2)" aria-label="Candle 2">
+        <div class="flame" id="flame2"></div>
+        <span>2</span>
+    </button>
+
+    <button class="candle c3" onclick="blowOut(3)" aria-label="Candle 3">
+        <div class="flame" id="flame3"></div>
+        <span>3</span>
+    </button>
+
+    <div class="cake">
+        <div class="icing"></div>
+    </div>
+
+</div>
+
+<p id="message">Start with candle number 1, birthday girl! 🥹❤️</p>
+
+<p class="hint">Psst... don't skip any candles! 😉</p>
+
+<script>
+let nextCandle = 1;
+
+function blowOut(number) {
+    const message = document.getElementById("message");
+
+    if (number !== nextCandle) {
+        message.textContent =
+            "Oops! 😂 Press candle " + nextCandle + " first! ❤️";
+        return;
+    }
+
+    document.getElementById("flame" + number)
+        .classList.add("off");
+
+    if (number === 1) {
+        message.textContent =
+            "One candle down! Make your first wish. ✨";
+    } else if (number === 2) {
+        message.textContent =
+            "Two candles down! One last wish, birthday girl! 🥹💗";
+    } else if (number === 3) {
+        message.textContent =
+            "You did it! Your next surprise is waiting... ❤️🎁";
+
+        setTimeout(function() {
+            window.location.href = "surprise.html";
+        }, 1800);
+
+        return;
+    }
+
+    nextCandle++;
+}
+</script>
+
+</body>
+  </html>
