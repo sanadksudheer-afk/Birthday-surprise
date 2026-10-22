@@ -116,6 +116,88 @@ Thank you for being a part of my life. 🌹
 <a class="back" href="index.html">
 ← Back to Your Birthday Surprise
 </a>
+    <!-- Your Options Section -->
+<div style="
+    text-align: center;
+    margin: 50px 15px 30px;
+    padding: 25px 15px;
+    background: #fff0f5;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px #f3b6cc;
+">
+
+    <button onclick="showOptions()" style="
+        background: #c2185b;
+        color: white;
+        border: none;
+        padding: 15px 28px;
+        border-radius: 30px;
+        font-size: 18px;
+        cursor: pointer;
+    ">
+        Your Options 💌
+    </button>
+
+    <div id="options" style="display:none; margin-top:25px;">
+
+        <h3 style="color:#c2185b;">
+            You have 2 options ❤️
+        </h3>
+
+        <p style="color:#6b3048; font-size:17px;">
+            One: Stay with me ❤️<br>
+            Two: Leave 💔<br><br>
+            Select any one.
+        </p>
+
+        <button onclick="showAnswer('stay')" style="
+            background:#e91e63;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:25px;
+            font-size:17px;
+            margin:5px;
+            cursor:pointer;
+        ">
+            Stay ❤️
+        </button>
+
+        <button onclick="showAnswer('leave')" style="
+            background:#777;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:25px;
+            font-size:17px;
+            margin:5px;
+            cursor:pointer;
+        ">
+            Leave 💔
+        </button>
+
+        <p id="answer" style="
+            color:#c2185b;
+            font-size:18px;
+            font-weight:bold;
+            margin-top:20px;
+        "></p>
+
+    </div>
+</div>
+
+<script>
+function showOptions() {
+    document.getElementById("options").style.display = "block";
+}
+
+function showAnswer(choice) {
+    if (choice === "stay") {
+        window.location.href = "cake.html";
+    } else {
+        alert("Oops sorry this button is damaged and don't try it again 😂❤️");
+    }
+}
 
 </body>
 </html>
