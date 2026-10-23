@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noah 🐱💕</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #ffe0ed, #fff2f7, #ffd1e3);
+  color: #ad1457;
+  overflow: hidden;
+}
+
+.container {
+  padding: 24px;
+  max-width: 440px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 23px;
+  line-height: 1.6;
+  animation: float 2s ease-in-out infinite;
+}
+
+.cat-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 130px;
+  line-height: 1.5;
+  animation: bounce 1.8s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hint {
+  font-size: 15px;
+  color: #9c4770;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-13px) rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: rise 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <h2 id="message">
+    Happy birthday nunnukutty.. pakshe enney thodan padulla tto 💕😂
+  </h2>
+
+  <button class="cat-button" id="cat"
+          aria-label="Touch the cat" onclick="touchCat()">
+    🐱
+  </button>
+
+  <p class="hint" id="hint">Touch the cat if you dare! 👆😂</p>
+
+</div>
+
+<script>
+let touches = 0;
+
+function touchCat() {
+  touches++;
+
+  const message = document.getElementById("message");
+  const cat = document.getElementById("cat");
+  const hint = document.getElementById("hint");
+
+  if (touches === 1) {
+    message.textContent = "Venda tto viveram ariyum! 😾😂";
+    cat.textContent = "😾";
+    hint.textContent = "Hehe... one more touch! 👆💕";
+  } else {
+    cat.textContent = "😹";
+    message.textContent = "AYYOOO! CAUGHT YOU! 😂💕";
+    hint.textContent = "Opening your next surprise... 💌";
+
+    setTimeout(function() {
+      window.location.href = "cat-surprise.html";
+    }, 1200);
+  }
+}
+
+for (let i = 0; i < 15; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["💕", "💗", "💖", "🐾"][i % 4];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 6 + "s";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
