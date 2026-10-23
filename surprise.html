@@ -4,74 +4,451 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Your Special Surprise ❤️</title>
+<title>For My Kunjuoo 💌</title>
 
 <style>
-    body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #ffdae8, #ffc1d6, #fff0f5);
-        color: #b01755;
-        padding: 20px;
-        box-sizing: border-box;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 25px 12px 40px;
+    background:
+        radial-gradient(ellipse at top, #76533b 0%, transparent 60%),
+        linear-gradient(135deg, #302016, #67452e, #291b13);
+    font-family: Georgia, "Times New Roman", serif;
+    color: #4b2b1b;
+    overflow-x: hidden;
+}
+
+/* Floating roses and hearts */
+
+.petal {
+    position: fixed;
+    top: -40px;
+    z-index: 0;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
     }
 
-    .card {
-        max-width: 400px;
-        background: white;
-        padding: 30px 22px;
-        border-radius: 25px;
-        box-shadow: 0 8px 30px #e99ab8;
+    15% {
+        opacity: 0.9;
     }
 
-    h1 {
-        font-size: 30px;
+    100% {
+        transform: translateY(110vh) rotate(400deg);
+        opacity: 0;
+    }
+}
+
+/* Opening heading */
+
+.heading {
+    text-align: center;
+    color: #f8dfb0;
+    margin: 12px auto 25px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease;
+}
+
+.heading h1 {
+    font-size: clamp(27px, 7vw, 38px);
+    margin-bottom: 8px;
+}
+
+.heading p {
+    font-size: 16px;
+    color: #ead0a4;
+    font-style: italic;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
-    p {
-        font-size: 18px;
-        line-height: 1.8;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Envelope */
+
+.envelope {
+    max-width: 420px;
+    margin: 0 auto;
+    min-height: 190px;
+    background: linear-gradient(145deg, #d9b77e, #a77a49);
+    border: 3px solid #e2c79a;
+    border-radius: 5px;
+    box-shadow: 0 12px 35px #140d08;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.seal {
+    width: 65px;
+    height: 65px;
+    background: #772c27;
+    border-radius: 50%;
+    color: #f6d9a1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 3px 10px #563019;
+    margin-bottom: 12px;
+}
+
+.envelope h2 {
+    margin: 5px;
+    font-size: 24px;
+    color: #492817;
+}
+
+.envelope p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.open-button {
+    background: #702c25;
+    color: #ffe7b5;
+    border: 1px solid #e4c38b;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px #70442d;
+    transition: transform 0.3s;
+}
+
+.open-button:active {
+    transform: scale(0.95);
+}
+
+/* Vintage paper */
+
+.letter {
+    display: none;
+    width: 100%;
+    max-width: 480px;
+    margin: 28px auto 0;
+    padding: 28px 20px;
+    position: relative;
+    z-index: 1;
+
+    background:
+        radial-gradient(ellipse at top left, #fff3d1, transparent 65%),
+        linear-gradient(135deg, #f4e2bb, #e8d0a0, #f7e9c9);
+
+    border: 2px solid #9d7546;
+    outline: 1px solid #d7b77c;
+    outline-offset: -8px;
+
+    box-shadow:
+        0 15px 35px #140d08,
+        inset 0 0 30px #b9935a;
+
+    animation: unfold 1.3s ease forwards;
+}
+
+@keyframes unfold {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
     }
 
-    .heart {
-        font-size: 65px;
-        animation: beat 1s infinite;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.letter::before {
+    content: "❦";
+    display: block;
+    text-align: center;
+    font-size: 35px;
+    color: #8a382e;
+    margin-bottom: 10px;
+}
+
+.letter-title {
+    text-align: center;
+    font-size: 28px;
+    color: #713329;
+    margin: 5px 0 8px;
+    font-style: italic;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #855b3d;
+    margin-bottom: 22px;
+}
+
+.photo-frame {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 25px;
+    padding: 9px;
+    background: #fff3d9;
+    border: 1px solid #b48b58;
+    box-shadow: 0 5px 15px #8b6844;
+    transform: rotate(-1deg);
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    border: 1px solid #d2b387;
+}
+
+.letter-body {
+    font-size: 16px;
+    line-height: 1.95;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+    color: #4b3022;
+}
+
+.letter-body p {
+    margin: 0 0 20px;
+}
+
+.highlight {
+    color: #842d32;
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.8;
+    color: #702c25;
+}
+
+.bottom-heart {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 25px;
+}
+
+.footer {
+    text-align: center;
+    color: #f0d8ae;
+    font-size: 13px;
+    margin: 25px auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 600px) {
+    .letter {
+        padding: 38px 35px;
     }
 
-    @keyframes beat {
-        50% {
-            transform: scale(1.15);
-        }
+    .letter-body {
+        font-size: 17px;
     }
+}
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="heading">
+    <h1>For My Kunjuoo ❤️</h1>
+    <p>A little letter from your Gen Kunjo... 💌</p>
+</div>
 
-    <div class="heart">❤️</div>
+<div class="envelope" id="envelope">
 
-    <h1>One Last Surprise! 🎁</h1>
+    <div class="seal">💌</div>
 
-    <p>
-        Happy Birthday, my special person! 🎂💗
-        <br><br>
-        Out of all the beautiful moments in this world,
-        I'm grateful for the memories we've shared.
-        <br><br>
-        May your birthday be filled with happiness,
-        beautiful smiles, and dreams coming true. 🥹❤️
-    </p>
+    <h2>To My Favourite Person</h2>
 
-    <p><b>Always wishing you the very best. 💖</b></p>
+    <p>A letter written with all my heart...</p>
+
+    <button class="open-button" onclick="openLetter()">
+        Open My Letter 🥹❤️
+    </button>
 
 </div>
 
+<article class="letter" id="letter">
+
+    <h2 class="letter-title">My Dearest Kunjuoo</h2>
+
+    <p class="subtitle">
+        A little piece of my heart, written just for you 🌹
+    </p>
+
+    <!-- YOUR PHOTO -->
+    <div class="photo-frame">
+        <img src="our-photo.jpg" alt="A special memory">
+    </div>
+
+    <div class="letter-body">
+
+        <p>
+            Kunjuoo... 🥹💕 njan undakkiya first site aanu ith for youuhh 😁💋
+            I am very, very, extremely happy and excited that you're growing
+            your beautiful life with me. And I am very lucky to have you,
+            Kunjuoo! 😭🤌🏻
+        </p>
+
+        <p>
+            Nammal adi koodum, mindum, thettum... but even I enjoy that too
+            secretly 😂😚
+        </p>
+
+        <p>
+            Athupoleyy, ente life-il best choice thanneya Kunjuoo nee.
+            Ini enthokke aayalum ath angane thanne aavum.
+            Aarkkum aa place edukkan pattilla. Nee mathram mathi enikku...
+            as a mother, as a friend, as a wife, as a sister,
+            as everything in my life. 😩👅✨
+        </p>
+
+        <p>
+            Ente ella korevukalum manassilaakki ninna ore oru aala nee.
+            And you teach me what real love and real life look like.
+            Enthenkilum pratheekshikkathe, enikku paisa illennu arinjittum,
+            njan toxic aavunnath manassilaakki ath enikku fix aakki
+            tharaanum... ee ellathinum, Kunjuoo! 😭💕
+        </p>
+
+        <p class="highlight">
+            Ente jeevithathile oru turning point undaavum...
+            ente jeevithathil ath nee aanu. ❤️
+        </p>
+
+        <p>
+            Veruthe parayalla, sherikkum! 🙈
+            Ithokke type cheyyumbolum ninte face aanu ente mind full.
+            And you know? I am blushing! 😭🌼
+        </p>
+
+        <p>
+            Enikku ariyaam, Kunjuoo, it's very hard to keep going with me
+            and all my negative sides. But surely, I will repay you with
+            my all. And you're the strongest woman I have ever met
+            in my whole life, Kunjuoo! 🫂
+        </p>
+
+        <p>
+            Aar vannalum poyalum, ath nee thanneya, Kunjuoo.
+            Ippo nammade idayil kore sambhavangal undaayi,
+            and I really regret that. But Kunjuoo, still nammal ath
+            solve aakkunnund. Ini enthundaayalum nammal ath solve aakkum
+            ennu enikku nalla vishwasam und, kaaranam I know your love
+            is more than a sea. And honestly, I am grateful. 🌊❤️
+        </p>
+
+        <p>
+            Your Gen Kunjo... 😭💎
+        </p>
+
+        <p>
+            Ithokke njan veruthe parayunnath alla, Kunjuoo.
+            Manassil thatti parayuvaa. 😩🫀
+        </p>
+
+        <p class="highlight">
+            One more thing, Kunjuoo...
+            YOU TREAT ME MORE THAN I DO! 💯💯
+        </p>
+
+        <p>
+            And I am still trying hard to make you feel the same,
+            and I will keep trying to become better and show you my love
+            through my actions. 🫂
+        </p>
+
+        <p class="highlight">
+            LOVE YOU, PONNUOH! 😭💋❤️
+        </p>
+
+        <p class="highlight">
+            Very, very happiest birthday to my world! 🌍😭✨💕
+        </p>
+
+    </div>
+
+    <div class="signature">
+        Forever with love,<br>
+        Your Gen Kunjo 💋<br>
+        <span style="font-size:28px;">❤️∞</span>
+    </div>
+
+    <div class="bottom-heart">🌹 🫀 🌹</div>
+
+</article>
+
+<div class="footer">
+    A little website, made with a whole lot of love. ❤️
+</div>
+
+<script>
+function openLetter() {
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+
+    envelope.style.display = "none";
+    letter.style.display = "block";
+
+    setTimeout(function() {
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 150);
+}
+
+/* Floating rose petals and hearts */
+
+const decorations = ["🌹", "🌸", "💕", "✨", "❤️"];
+
+for (let i = 0; i < 18; i++) {
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+    petal.textContent = decorations[i % decorations.length];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDelay = Math.random() * 10 + "s";
+    petal.style.animationDuration = (8 + Math.random() * 9) + "s";
+    petal.style.fontSize = (13 + Math.random() * 13) + "px";
+
+    document.body.appendChild(petal);
+}
+</script>
+
 </body>
-  </html>
+    </html>
